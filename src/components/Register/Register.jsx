@@ -4,11 +4,11 @@ import { AuthContext } from '../AuthProviders/AuthProviders';
 
 const Register = () => {
 
-    const {user, createUser} = useContext(AuthContext);
+    const { user, createUser } = useContext(AuthContext);
     console.log(createUser);
 
     // login method
-    const handleRegister = (event) =>{
+    const handleRegister = (event) => {
         event.preventDefault();
 
         const form = event.target;
@@ -18,14 +18,14 @@ const Register = () => {
         console.log(name, email, password);
 
         createUser(email, password)
-        .then(result => {
-            const loggedUser = result.user;
-            console.log(loggedUser);
-            form.reset();
-        })
-        .catch(error =>{
-            console.log(error);
-        })
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                form.reset();
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 
     return (
@@ -57,7 +57,7 @@ const Register = () => {
                             <label className="label">
                                 <Link to="/login" className="label-text-alt link link-hover">Already have an Account?</Link>
                             </label>
-                            
+
                         </div>
                         <div className="form-control mt-6">
                             <input className='btn btn-primary' type="submit" value="Register" />
