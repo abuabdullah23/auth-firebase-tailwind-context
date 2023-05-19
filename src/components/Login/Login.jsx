@@ -4,7 +4,7 @@ import { AuthContext } from '../AuthProviders/AuthProviders';
 
 const Login = () => {
 
-    const { signIn } = useContext(AuthContext);
+    const { signIn, signInWithGoogle } = useContext(AuthContext);
 
     // login method
     const handleLogin = event => {
@@ -23,6 +23,18 @@ const Login = () => {
             .catch(error => {
                 console.log(error);
             })
+    }
+
+    // google sign in
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+        .then(result=>{
+            const loggedUser = result.user;
+            console.log(loggedUser);
+        })
+        .catch(error=>{
+            console.log(error)
+        })
     }
 
     return (
@@ -55,6 +67,10 @@ const Login = () => {
                         <label className="label">
                             <Link to="/register" className="label-text-alt link link-hover">New to Auth Master? Please Register.</Link>
                         </label>
+                        <div className='mt-5'>
+                            <h4 className='mb-3'>Login With Social Media</h4>
+                            <button onClick={handleGoogleSignIn}><img className='w-8' src="https://cdn-icons-png.flaticon.com/128/300/300221.png" alt="" /></button>
+                        </div>
                     </form>
                 </div>
             </div>

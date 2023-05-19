@@ -15,6 +15,11 @@ const Navbar = () => {
             <Link className="btn btn-ghost normal-case text-xl" to='/'>Auth Master</Link>
             <Link className="btn btn-ghost normal-case text-xl" to='/'>Home</Link>
             <Link className="btn btn-ghost normal-case text-xl" to='/orders'>Orders</Link>
+            {/* menu condition visible */}
+            {
+                user &&
+                <Link className="btn btn-ghost normal-case text-xl" to='/profile'>Profile</Link>
+            }
             <Link className="btn btn-ghost normal-case text-xl" to='/login'>Login</Link>
             <Link className="btn btn-ghost normal-case text-xl" to='/register'>Register</Link>
 
